@@ -5,31 +5,39 @@
     <meta charset="UTF-8">
     <title>Tyler Meyers Resume About</title>
     <link rel="icon" type="image/x-icon" href="/images/TMicon.ico">
+    <link rel="stylesheet" href="styles/main.css">
 </head>
 
 
 <body>
     <header>
         <h1><a href="index.html">Tyler Meyers Home</a>-><a href="about.html">About</a></h1>
+        <hr>
     </header>
 
     <main>
         <h2>My Experiences</h2>
         <section id="Summary">
             <h3>Summary</h3>
-                <div class ="inline">
-                    <p class="large"> Goal-driven and passionate Computer Science undergraduate with extensive experience leading
-                        community focused projects and working closely with UCSD faculty. Particularly passionate about
-                        employing computer science resources to further education. Proficiency of Python and C, but more
-                        than <strong>willing to learn what it takes to contribute meaningful work.</strong> Ready to take on responsibilities
-                        and looking forward to expanding my skill set while gaining marketable experience</p>
-                    <img
-                    src="images/stock.jpg"
-                    width="500"
-                    height="350"
-                    alt="stock img">
+            <div>
+                <p class="inlineLeft"> Goal-driven and passionate Computer Science undergraduate with extensive experience leading
+                    community focused projects and working closely with UCSD faculty. Particularly passionate about
+                    employing computer science resources to further education. Proficiency of Python and C, but more
+                    than <strong>willing to learn what it takes to contribute meaningful work.</strong> Ready to take on responsibilities
+                    and looking forward to expanding my skill set while gaining marketable experience</p>
+                <img class="inlineRight" src="images//Sample-PNG-Image.png" width="100" height="100" alt="stock img">
+                <picture>
+                    <source
+                        sizes="(mind-width: 600px) 100vw, 600px,
+                        (mind-width: 1200px) 100vw, 1200px"
+                        srcset="images/Sample-PNG-Image 600w"
+                        type="image/jpeg">
+                        <img class="inlineRight" src="images//Sample-PNG-Image.png" width="100" height="100" alt="stock img">
+                </picture>
 
-                </div>
+
+                <!--from https://www.pngall.com/sample-png/download/65772-->
+            </div>
         </section>
 
         <section id="Education">
@@ -37,9 +45,7 @@
             <details>
                 <summary><i>B.S. of Computer Science, <b>University of California San Diego</b>: </i></summary>
                 <p>September 2021 - Present</p>
-
                 <br>
-
                 <table>
                     <caption>CS Classes</caption>
                     <colgroup>
@@ -50,9 +56,9 @@
                         <th scope="col">Description</th>
                     </tr>
                     <tr>
-                        <td>CSE 100:</td>
-                        <td>Advanced Data Structures</td>
-                    </tr>
+                         <td>CSE 100:</td>
+                         <td>Advanced Data Structures</td>
+                     </tr>
                     <tr>
                         <td>CSE 105:</td>
                         <td>Theory of Computation</td>
@@ -62,35 +68,18 @@
         </section>
 
         <section id="workExperience">
-            <h3>Experience</h3>
-
+             <h3>Experience</h3>
         </section>
     </main>
 
     <footer>
-        <div id="foot" class="inline">
-            <nav>
-                <ol class="inline none">
-                    <li><a href="https://github.com/tylermeyers"><img src="images/github-mark.png" alt="Linked GitHub Logo" fetchpriority="low" height="50" width="50"></a></li>
-                    <li><a href="www.linkedin.com/in/tyler-meyers"><img src="images/LI-In-Bug.png" alt="Linked Linkedin Logo" fetchpriority="low" height="50" width="50"></a></li>
-                </ol>
-            </nav>
-
-            <form action="mailto:tylerleemeyers@gmail.com" method="get">
-                <fieldset>
-                    <legend>Wanna Contact me?</legend>
-                    <label for="subj">Subject:</label>
-                    <input list="subjs" id="subj" name="subj" type="text"/>
-                    <input type="submit" value="Send"/>
-                </fieldset>
-
-                <datalist id="subjs">
-                    <option value="Internship Opportunity"></option>
-                    <option value="Improvements to Site"></option>
-                    <option value="Other"></option>
-                </datalist>
-            </form>
-        </div>
+        <hr>
+        <nav>
+            <ol>
+                <li class="inline"><a href="https://github.com/tylermeyers"><img src="images/github-mark.png" alt="Linked GitHub Logo" fetchpriority="low" height="50" width="50"></a></li>
+                <li class="inline"><a href="www.linkedin.com/in/tyler-meyers"><img src="images/LI-In-Bug.png" alt="Linked Linkedin Logo" fetchpriority="low" height="50" width="50"></a></li>
+            </ol>
+        </nav>
     </footer>
 </body>
 

@@ -1,0 +1,134 @@
+:root{
+    --default-text-color: black;
+    --full-display: 100vh;
+}
+
+@media (prefers-contrast:more){
+    a:hover{
+        font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    }
+    .nearButton{
+        background-color: blue;
+    }
+    a{
+        color:hsl(0, 50%, 50%);
+    }
+}
+
+@keyframes color {
+    0% {color:rebeccapurple}
+    20% {color:blue}
+    40% {color:lightgreen}
+    60% {color:yellow}
+    80% {color:orange}
+    100% {color:red}
+}
+
+body {
+    background-color: whitesmoke;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    align-items: stretch;
+    min-height: var(--full-display, 100dvh);
+    min-width: var(--full-display, 100dvw);
+}
+
+
+
+
+header {
+    display: block;
+    min-height: 10dvh;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    align-items:flex-start;
+    border-radius: 25px;
+    border: 2px solid black;
+    margin-left: 2vh;
+    margin-right: 2vh;
+    min-height: 80dvh;
+    min-width: 80dvh;
+}
+
+main:has(+ article){
+    border: 0px;
+}
+
+p {
+    width: 50dvw;
+}
+
+ul {
+    list-style: none;
+}
+
+
+#background{
+    /* want to add a de-blur via mouse movement `type thing with JS*/
+    position:absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: url("/images/snazzybig.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    filter: blur(8px);
+    z-index: -1;
+}
+
+.nearButton{
+    background-color: rgb(129, 133, 121);
+    padding: 0;
+    margin: 0;
+    border-radius: 25px;
+    border: 1px solid black;
+}
+
+
+footer {
+    display: block;
+    min-height: 10dvh;
+    text-align: center;
+}
+
+
+
+.inline{
+    display: inline;
+}
+
+a {
+    color: var(--default-text-color, black);
+    text-decoration: none;
+    font-size: larger;
+}
+
+
+a:hover {
+    animation-name: color;
+    animation-duration: 3s;
+    animation-iteration-count: infinite;
+    text-decoration: underline;
+}
+
+.inlineLeft{
+    float: inline-start;
+}
+
+.inlineRight{
+    float: right;
+    padding-right: 10vh;
+    padding-left: 10vh;
+
+    min-width: 20dvw;
+    min-height: 20dvh;
+
+}
+
