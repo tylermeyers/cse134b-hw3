@@ -78,6 +78,7 @@ ul {
     list-style: none;
 }
 
+
 .switch {
     position: fixed;
     top: 10px;
@@ -114,6 +115,7 @@ input:checked + .slider:before {
     transform: translateX(26px);
     content: "after" ;
 }
+
 
 #background{
     /* want to add a de-blur via mouse movement `type thing with JS*/
