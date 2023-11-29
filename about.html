@@ -185,6 +185,18 @@
             let val = message.value.length;
             let cur = document.getElementById("curr");
             cur.textContent=val;
+
+            let out = document.getElementById("error");
+            let inf = document.getElementById("info");
+
+            if(val==200){
+                out.textContent="error too long";
+                inf.textContent="";
+
+            }else{
+                inf.textContent="Looking good";
+                out.textContent="";
+            }
         }
         </script>
 </body>
