@@ -12,6 +12,11 @@
 <body>
     <header>
         <h1><a href="index.html">Tyler Meyers Home</a>-><a href="about.html">About</a></h1>
+
+        <label class="switch">
+            <input type="checkbox" id="themeToggle" onclick="toggleTheme()">
+            <span class="slider"></span>
+        </label>
         <hr>
     </header>
 
@@ -67,22 +72,70 @@
             </details>
         </section>
 
-        <section id="ContactME">
-             <h3>Contact me Placeholder</H3>
-            <form action="https://httpbin.org" method="POST">
-                <fieldset>
-                    <label for="name">Name:
-                        <input type="text" name="name" id="name"/>
+        <form action="https://httpbin.org/post" method="post" id="form" >
+            <fieldset>
+                <legend style="font-size: large;">Contact Me!</legend>
+                <p style="display: flex">
+                    <label for="name" style="display: flex; flex-direction: column;">Name:
+                        <input type="text" name="name" id="name" required minlength="2" style="display: flex; flex-direction: column;"/>
                     </label>
-                    <label for="email">Email:
-                        <input type="text" name="email" id="email"/>
+                </p>
+               <p style="display: flex";>
+                    <label for="email" style="display: flex; flex-direction: column;">Email:
+                        <input type="email" name="email" id="email" style="display: flex; flex-direction: column;"/>
                     </label>
-                    <textarea name="message" id="message" cols="40" rows="10"></textarea>
-                    <input type="hidden" name="possible_bot" value="true">
-                    <button type="submit">Submit</button>
+                </p>
+                <p style="display: flex">
+                    <label for="message">Message:
+                        <input style="display: flex;" type="text" name="message" id="message" placeholder="Type Message Here" required minlength="4" pattern="[a-zA-z,!.?]*" style="display: block;"></textarea>
+                    </label>
+                </p>
+                <input type="hidden" name="possible_bot" value="true">
+                    <button type="submit" value="submit">Submit</button>
                 </fieldset>
+
+                <output form="form" id="error" name="error"></output>
+                <output form="form" id="info" name="info">
             </form>
         </section>
+        <script>
+        const email = document.getElementById("email");
+        const name = document.getElementById("name");
+        const message = document.getElementById("message");
+
+        email.addEventListener("input", (event)=> {
+            if(email.validity.typeMismatch){
+                email.setCustomValidity("Please enter a valid email");
+            }
+            if(email.value.length < 6){
+                email.setCustomValidity("Your email is too short!");
+            }
+            else{
+                email.setCustomValidity("");
+            }
+        });
+
+        name.addEventListener("input", (event)=> {
+            if(name.validity.typeMismatch){
+                name.setCustomValidity("I know that's not your real name");
+            }else if(name.value.length < 2){
+                name.setCustomValidity("Your name is too short (fix it)");
+            }else if(!(/^[a-zA-z]+$/).test(name.value)){
+                name.setCustomValidity("Name includes bad characters");
+            }
+            else{
+                name.setCustomValidity("");
+            }
+        });
+
+        //name.addEventListener("input", (event)=>{
+          //  if(!name.checkValidity()){
+            //    name.setCustomValidity("I know thats not your real name >:(");
+            //}else{
+              //  name.setCustomValidity("")
+            //}
+        //})
+        </script>
     </main>
 
     <footer>
@@ -94,6 +147,8 @@
             </ol>
         </nav>
     </footer>
+
+    <script src="scripts/script.js"></script>
 </body>
 
 </html>
