@@ -17,6 +17,12 @@
                 .switch{
                     display:none;
                 }
+                #curr{
+                    display:none;
+                }
+                #max{
+                    display:none;
+                }
             </style>
         </noscript>
         <label class="switch">
@@ -93,8 +99,12 @@
                 </p>
                 <p style="display: flex">
                     <label for="message">Message:
-                        <input style="display: flex;" type="text" name="message" id="message" placeholder="Type Message Here" required minlength="4" pattern="[a-zA-z,!.?]*" style="display: block;"></textarea>
+                        <input style="display: flex;" type="text" name="message" id="message" placeholder="Type Message Here" required minlength="4" maxlength="200" onkeyup="Character()" pattern="[a-zA-z,!.?]*" style="display: block;"></textarea>
                     </label>
+                    <div id="count">
+                        <span id="curr">0</span>
+                        <span id="max"> 200</span>
+                    </div>
                 </p>
                 <input type="hidden" name="possible_bot" value="true">
                     <button type="submit" value="submit">Submit</button>
@@ -104,44 +114,6 @@
                 <output form="form" id="info" name="info">
             </form>
         </section>
-        <script>
-        const email = document.getElementById("email");
-        const name = document.getElementById("name");
-        const message = document.getElementById("message");
-
-        email.addEventListener("input", (event)=> {
-            if(email.validity.typeMismatch){
-                email.setCustomValidity("Please enter a valid email");
-            }
-            if(email.value.length < 6){
-                email.setCustomValidity("Your email is too short!");
-            }
-            else{
-                email.setCustomValidity("");
-            }
-        });
-
-        name.addEventListener("input", (event)=> {
-            if(name.validity.typeMismatch){
-                name.setCustomValidity("I know that's not your real name");
-            }else if(name.value.length < 2){
-                name.setCustomValidity("Your name is too short (fix it)");
-            }else if(!(/^[a-zA-z]+$/).test(name.value)){
-                name.setCustomValidity("Name includes bad characters");
-            }
-            else{
-                name.setCustomValidity("");
-            }
-        });
-
-        //name.addEventListener("input", (event)=>{
-          //  if(!name.checkValidity()){
-            //    name.setCustomValidity("I know thats not your real name >:(");
-            //}else{
-              //  name.setCustomValidity("")
-            //}
-        //})
-        </script>
     </main>
 
     <footer>
@@ -178,7 +150,43 @@
             setTheme(savedTheme);
             document.getElementById('themeToggle').checked = savedTheme==='dark';
         }
-    });</script>
+    });
+
+    const email = document.getElementById("email");
+        const name = document.getElementById("name");
+        const message = document.getElementById("message");
+
+        email.addEventListener("input", (event)=> {
+            if(email.validity.typeMismatch){
+                email.setCustomValidity("Please enter a valid email");
+            }
+            if(email.value.length < 6){
+                email.setCustomValidity("Your email is too short!");
+            }
+            else{
+                email.setCustomValidity("");
+            }
+        });
+
+        name.addEventListener("input", (event)=> {
+            if(name.validity.typeMismatch){
+                name.setCustomValidity("I know that's not your real name");
+            }else if(name.value.length < 2){
+                name.setCustomValidity("Your name is too short (fix it)");
+            }else if(!(/^[a-zA-z]+$/).test(name.value)){
+                name.setCustomValidity("Name includes bad characters");
+            }
+            else{
+                name.setCustomValidity("");
+            }
+        });
+
+        function Character() {
+            let val = message.value.length;
+            let cur = document.getElementById("curr");
+            cur.textContent=val;
+        }
+        </script>
 </body>
 
 </html>
