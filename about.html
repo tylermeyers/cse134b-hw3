@@ -148,7 +148,31 @@
         </nav>
     </footer>
 
-    <script type="text/javascript"src="scripts/script.js"></script>
+    <script type="text/javascript">
+    function setTheme(theme){
+        const root = document.documentElement;
+        if(theme==='dark'){
+            root.style.setProperty('background', 'var(--dark-mode-background-color)');
+            root.style.setProperty('color','var(--dark-mode-text-color)');
+        }else{
+            root.style.setProperty('background', 'var(--default-background-color)');
+            root.style.setProperty('color','var(--default-text-color');
+        }
+    }
+    function toggleTheme(){
+        const currTheme = localStorage.getItem('theme') || 'normal';
+        const newTheme = currTheme==='normal'?'dark':'normal';
+        localStorage.setItem('theme',newTheme);
+        setTheme(newTheme);
+    }
+
+    document.addEventListener('DOMContentLoaded', function (){
+        const savedTheme=localStorage.getItem('theme');
+        if(savedTheme){
+            setTheme(savedTheme);
+            document.getElementById('themeToggle').checked = savedTheme==='dark';
+        }
+    });</script>
 </body>
 
 </html>
